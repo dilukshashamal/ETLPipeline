@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.providers.https.hooks.http import HttpHook
+from airflow.providers.http.hooks.http import HttpHook
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.decorators import task
 from airflow.utils.dates import days_ago
@@ -97,4 +97,3 @@ with DAG(dag_id='weather_etl_pipeline',
     weather_data= extract_weather_data()
     transformed_data=transform_weather_data(weather_data)
     load_weather_data(transformed_data)
-
